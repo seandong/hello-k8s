@@ -6,7 +6,7 @@
 
 #### 0. startup minikube
 
-```bash
+```Shell
 minikube start
 
 # delete old service if start failed
@@ -18,7 +18,7 @@ minikube start
 
 #### 1. startup deployments and services
 
-```bash
+```Shell
 kubectl apply -f nginx.yaml
 kubectl apply -f hellok8s.yaml
 
@@ -29,7 +29,7 @@ kubectl apply -f hellok8s.yaml
 
 #### 2. startup ingress
 
-```bash
+```Shell
 kubectl apply -f ingress.yaml
 
 # kubectl get ingress
@@ -37,14 +37,14 @@ kubectl apply -f ingress.yaml
 
 #### 3. start minikube url service
 
-```bash
+```Shell
 minikube service list
 minikube service ingress-nginx-controller -n ingress-nginx --url
 ```
 
 #### 4. test
 
-```bash
+```Shell
 curl http://127.0.0.1:56770/hello # proxy to hello-k8s
 curl http://127.0.0.1:56770       # proxy to nginx
 ```
