@@ -24,7 +24,8 @@ func healthz(w http.ResponseWriter, r *http.Request) {
 
 func hello(w http.ResponseWriter, r *http.Request) {
 	host, _ := os.Hostname()
-	io.WriteString(w, fmt.Sprintf("[v4] Hello, Kubernetes! host: %s", host))
+	dbURL := os.Getenv("DB_URL")
+	io.WriteString(w, fmt.Sprintf("[v4] Hello, Kubernetes! host: %s, DataBase URL: %s", host, dbURL))
 }
 
 func main() {
